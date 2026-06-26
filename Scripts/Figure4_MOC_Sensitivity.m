@@ -15,6 +15,13 @@
 %  was extracted and included. Full data files are available on request.
 %  -----=
 
+% -----=
+% NOTE!
+% -----=
+% Data file is too large to store on github, and is stored in Zenodo
+% alongside the rest of the manuscript results.
+% Zenodo: https://zenodo.org/records/20938299
+
 %% Prepare workspace
 clear; close all;
 
