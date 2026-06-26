@@ -19,23 +19,28 @@
 clear; close all;
 
 % -= Load model data
-load('../Data/Zonal_water_ventilation_summary_ssp5_8.5.mat');
+load('../Data/SSFW_Data_lite.mat');
 load('../Data/UVIC_Coordinates.mat');
 
-% load('../Utilities/RGB_Colors.mat');
-
-T = Frac{2}.T; % time associated with each slice
-zonal_atl = Frac{2}.tr_zonal_atl; % extract zonal atlantic
+load('../Utilities/RGB_Colors.mat');
 
 
 %% -----= Southern Sourced Water Fraction - Zonal Atlantic
-zonal_atl_1980 = squeeze(zonal_atl(:,:,44,:));
-zonal_atl_2040 = squeeze(zonal_atl(:,:,56,:));
-zonal_atl_anom = zonal_atl_2040-zonal_atl_1980;
 
-zonal_atl_2040_SH = sum(zonal_atl_2040(:,:,[1 2 3 4]),3); % 2040 southern fraction
-zonal_atl_1980_SH = sum(zonal_atl_1980(:,:,[1 2 3 4]),3); % 1980 southern fraction
-zonal_atl_anom_SH = 100*(zonal_atl_2040_SH - zonal_atl_1980_SH);% southern fraction anomaly
+% % -----=
+% % -= If using the full data file from Zenodo, uncomment the following
+% load('../Data/Zonal_water_ventilation_summary_ssp5_8.5.mat');
+% T = Frac{2}.T; % time associated with each slice
+% zonal_atl = Frac{2}.tr_zonal_atl; % extract zonal atlantic
+
+% zonal_atl_1980 = squeeze(zonal_atl(:,:,44,:));
+% zonal_atl_2040 = squeeze(zonal_atl(:,:,56,:));
+% zonal_atl_anom = zonal_atl_2040-zonal_atl_1980;
+% 
+% zonal_atl_2040_SH = sum(zonal_atl_2040(:,:,[1 2 3 4]),3); % 2040 southern fraction
+% zonal_atl_1980_SH = sum(zonal_atl_1980(:,:,[1 2 3 4]),3); % 1980 southern fraction
+% zonal_atl_anom_SH = 100*(zonal_atl_2040_SH - zonal_atl_1980_SH);% southern fraction anomaly
+% % -----=
 
 % -= Plot SSWF Anomaly
 figure; hold on;
@@ -90,16 +95,20 @@ zonal_atl_anom_SH_core_std = std(zonal_atl_anom_SH_core);
 %% IDEAL MEAN AGE --------------------------------------------------------=
 %% Load data
 % -= Load model data
-load('../Data/IdealAge_SSP.mat');
+load('../Data/IdealAge_Data_lite.mat');
 % -= Load utilites
 load('../Utilities/RGB_Colors.mat');
 
 %% Evaluate ideal mean age and 2040-1980 anomaly
-% -= Calculate baselines and anomalies
-zonal_atl = squeeze(Age{5,1}.age_zonal(:,:,:,1));
-zonal_atl_1980 = zonal_atl(:,:,216);
-zonal_atl_2040 = zonal_atl(:,:,276);
-zonal_atl_anom = zonal_atl_2040-zonal_atl_1980;
+% -----=
+% % -= If using the full data file from Zenodo, uncomment the following
+% % -= Calculate baselines and anomalies
+% load('../Data/IdealAge_SSP.mat');
+% zonal_atl = squeeze(Age{5,1}.age_zonal(:,:,:,1));
+% zonal_atl_1980 = zonal_atl(:,:,216);
+% zonal_atl_2040 = zonal_atl(:,:,276);
+% zonal_atl_anom = zonal_atl_2040-zonal_atl_1980;
+% -----=
 
 %% Plotting
 % -= Plot 2040-1980 ideal mean age anomaly
